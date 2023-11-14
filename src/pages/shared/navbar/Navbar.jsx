@@ -1,20 +1,70 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() =>
+        Swal.fire({
+          title: "logged out",
+          showClass: {
+            popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+          },
+          hideClass: {
+            popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+          },
+        })
+      )
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navOptions = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="btn btn-ghost" to="/">
+          Home
+        </Link>
       </li>
       <li>
-        <Link to="menu">Menu</Link>
+        <Link className="btn btn-ghost" to="menu">
+          Menu
+        </Link>
       </li>
       <li>
-        <Link to="order/salad">Order Food</Link>
+        <Link className="btn btn-ghost" to="order/salad">
+          Order Food
+        </Link>
       </li>
-      <li>
-        <Link to="login">Login</Link>
-      </li>
+
+      {user ? (
+        <>
+          <li>
+            <button onClick={handleLogOut} className="btn btn-ghost">
+              Logout
+            </button>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link className="btn btn-ghost" to="login">
+              Login
+            </Link>
+          </li>
+        </>
+      )}
     </>
   );
 
