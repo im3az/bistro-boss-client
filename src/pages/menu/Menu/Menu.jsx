@@ -26,13 +26,13 @@ const Menu = () => {
         title={"our menu"}
         subTitle={"Would you like to try a dish?"}
       />
-      <SectionTitle subHeading={"Don't miss"} heading={"Today's Offer"} />
       {/* offered menu */}
+      <SectionTitle subHeading={"Don't miss"} heading={"Today's Offer"} />
       <MenuCategory items={offered} />
       {/* dessert menu */}
       <MenuCategory
         img={dessertBg}
-        title={"DESSERTS"}
+        title={"dessert"}
         subTitle={
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
@@ -41,7 +41,7 @@ const Menu = () => {
       {/* pizza category */}
       <MenuCategory
         img={pizzaBg}
-        title={"PIZZA"}
+        title={"pizza"}
         subTitle={
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
@@ -50,7 +50,7 @@ const Menu = () => {
       {/* salad category */}
       <MenuCategory
         img={saladBg}
-        title={"SALAD"}
+        title={"salad"}
         subTitle={
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
@@ -59,7 +59,7 @@ const Menu = () => {
       {/* soups category */}
       <MenuCategory
         img={soupBg}
-        title={"Soups"}
+        title={"soup"}
         subTitle={
           "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         }
