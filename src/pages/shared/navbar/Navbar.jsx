@@ -51,7 +51,7 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link className="btn btn-ghost" to="/">
+        <Link className="btn btn-ghost" to="/dashboard/cart">
           <FaShoppingCart />
           <div className="badge badge-secondary">+{carts.length}</div>
         </Link>

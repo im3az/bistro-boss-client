@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import SocialLogin from "../../components/socialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useAuth();
@@ -129,9 +130,17 @@ const Login = () => {
                 />
               </div>
             </form>
-            <p>
+            <div className="mx-auto text-center">
+              <h2>Or login in with:</h2>
+              <SocialLogin />
+            </div>
+            <div className="divider"></div>
+            <p className="px-8 pb-6 text-center">
               <small>
-                New here? <Link to="/signUp">Create an account.</Link>
+                New here?{" "}
+                <Link className="text-blue-800" to="/signUp">
+                  Create an account.
+                </Link>
               </small>
             </p>
           </div>
