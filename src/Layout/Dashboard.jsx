@@ -2,7 +2,7 @@ import {
   FaAd,
   FaBook,
   FaCalendar,
-  FaEnvelope, 
+  FaEnvelope,
   FaHome,
   FaList,
   FaSearch,
@@ -12,10 +12,11 @@ import {
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCart();
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="flex">
@@ -30,7 +31,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/addItem">
+                <NavLink to="/dashboard/addItems">
                   <FaUtensils />
                   Add items
                 </NavLink>

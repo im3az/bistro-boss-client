@@ -14,7 +14,7 @@ const SocialLogin = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
 
         const userInfo = {
           email: res.user?.email,
@@ -22,28 +22,29 @@ const SocialLogin = () => {
         };
 
         axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
+          if (res.data) {
+            Swal.fire({
+              title: "Logged in",
+              showClass: {
+                popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `,
+              },
+              hideClass: {
+                popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `,
+              },
+            });
+            navigate(from, { replace: true });
+          }
+
           navigate("/");
         });
-
-        // Swal.fire({
-        //   title: "Logged in",
-        //   showClass: {
-        //     popup: `
-        //         animate__animated
-        //         animate__fadeInUp
-        //         animate__faster
-        //       `,
-        //   },
-        //   hideClass: {
-        //     popup: `
-        //         animate__animated
-        //         animate__fadeOutDown
-        //         animate__faster
-        //       `,
-        //   },
-        // });
-        // navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
