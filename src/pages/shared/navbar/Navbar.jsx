@@ -3,10 +3,12 @@ import Swal from "sweetalert2";
 import { FaShoppingCart } from "react-icons/fa";
 import useAuth from "../../../hooks/useAuth";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [carts] = useCart();
+  const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
@@ -50,6 +52,23 @@ const Navbar = () => {
           Order Food
         </Link>
       </li>
+
+      {user && isAdmin && (
+        <li>
+          <Link className="btn btn-ghost" to="/dashboard/adminHome">
+            Dashboard
+          </Link>
+        </li>
+      )}
+
+      {user && !isAdmin && (
+        <li>
+          <Link className="btn btn-ghost" to="/dashboard/userHome">
+            Dashboard
+          </Link>
+        </li>
+      )}
+
       <li>
         <Link className="btn btn-ghost" to="/dashboard/cart">
           <FaShoppingCart />
